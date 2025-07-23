@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enterprise Solution - Download Now</title>
+    <title>Turtle - Download Now</title>
     
     <!-- Google Analytics - REPLACE GA_MEASUREMENT_ID with your actual ID -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
@@ -24,8 +24,8 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.5;
-            color: #1f2937;
-            background: #ffffff;
+            color: #ffffff;
+            background: #0a0a0a;
             font-weight: 400;
         }
         
@@ -34,9 +34,9 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid #1f2937;
             z-index: 100;
         }
         
@@ -51,33 +51,37 @@
         }
         
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #111827;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #10b981;
             letter-spacing: -0.025em;
         }
         
         .nav-button {
-            background: #111827;
-            color: white;
+            background: #10b981;
+            color: #0a0a0a;
             padding: 12px 24px;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 0.875rem;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             text-decoration: none;
-            transition: background-color 0.2s ease;
+            transition: all 0.2s ease;
         }
         
         .nav-button:hover {
-            background: #374151;
+            background: #059669;
+            transform: translateY(-1px);
         }
         
         .hero {
             padding-top: 160px;
             padding-bottom: 120px;
-            background: #ffffff;
+            background: linear-gradient(135deg, #0a0a0a 0%, #111827 50%, #1f2937 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
         
         .container {
@@ -94,17 +98,17 @@
         }
         
         .hero-text h1 {
-            font-size: 3.75rem;
-            font-weight: 800;
+            font-size: 4.5rem;
+            font-weight: 900;
             line-height: 1.1;
-            color: #111827;
+            color: #ffffff;
             margin-bottom: 24px;
-            letter-spacing: -0.025em;
+            letter-spacing: -0.02em;
         }
         
         .hero-text .subtitle {
-            font-size: 1.25rem;
-            color: #6b7280;
+            font-size: 1.375rem;
+            color: #9ca3af;
             margin-bottom: 40px;
             line-height: 1.6;
             font-weight: 400;
@@ -120,29 +124,33 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: #111827;
-            color: white;
-            padding: 16px 32px;
-            font-size: 1rem;
-            font-weight: 600;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff;
+            padding: 20px 40px;
+            font-size: 1.125rem;
+            font-weight: 700;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             width: fit-content;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         
         .primary-button:hover {
-            background: #374151;
-            transform: translateY(-1px);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4);
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
         }
         
         .trust-indicators {
             display: flex;
             align-items: center;
-            gap: 24px;
-            margin-top: 32px;
+            gap: 32px;
+            margin-top: 48px;
             color: #6b7280;
             font-size: 0.875rem;
         }
@@ -151,56 +159,102 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            font-weight: 500;
         }
         
         .trust-item::before {
-            content: '✓';
+            content: '●';
             color: #10b981;
-            font-weight: 600;
+            font-weight: 900;
         }
         
         .hero-visual {
             display: flex;
             justify-content: center;
+            align-items: center;
             position: relative;
         }
         
-        .dashboard-mockup {
+        .phone-mockup {
+            width: 300px;
+            height: 600px;
+            background: linear-gradient(145deg, #1f2937 0%, #111827 100%);
+            border-radius: 45px;
+            padding: 12px;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        
+        .phone-screen {
             width: 100%;
-            max-width: 480px;
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            height: 100%;
+            background: #000000;
+            border-radius: 35px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid #374151;
         }
         
-        .mockup-header {
-            height: 40px;
-            background: #ffffff;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            border: 1px solid #e5e7eb;
-            display: flex;
-            align-items: center;
-            padding: 0 16px;
-        }
-        
-        .mockup-content {
-            height: 300px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 8px;
+        .phone-header {
+            height: 70px;
+            background: linear-gradient(180deg, #111827 0%, #0f172a 100%);
+            border-bottom: 1px solid #374151;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #10b981;
+            letter-spacing: 0.05em;
+        }
+        
+        .dashboard-content {
+            padding: 32px 24px;
+            height: calc(100% - 70px);
+            background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+        }
+        
+        .dashboard-card {
+            background: linear-gradient(145deg, #1f2937 0%, #374151 100%);
+            border: 1px solid #4b5563;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-header {
+            font-size: 0.75rem;
             font-weight: 600;
+            color: #9ca3af;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .card-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        
+        .card-accent {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #10b981;
+        }
+        
+        .card-subtitle {
+            font-size: 0.75rem;
+            color: #6b7280;
         }
         
         .features-section {
             padding: 120px 0;
-            background: #f9fafb;
+            background: #111827;
         }
         
         .section-header {
@@ -209,16 +263,16 @@
         }
         
         .section-header h2 {
-            font-size: 2.75rem;
-            font-weight: 800;
-            color: #111827;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #ffffff;
             margin-bottom: 16px;
             letter-spacing: -0.025em;
         }
         
         .section-header p {
-            font-size: 1.125rem;
-            color: #6b7280;
+            font-size: 1.25rem;
+            color: #9ca3af;
             max-width: 640px;
             margin: 0 auto;
             line-height: 1.6;
@@ -231,85 +285,65 @@
         }
         
         .feature-card {
-            background: white;
-            padding: 32px;
-            border-radius: 12px;
-            border: 1px solid #e5e7eb;
-            transition: box-shadow 0.2s ease;
+            background: linear-gradient(145deg, #1f2937 0%, #374151 100%);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #4b5563;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
         
         .feature-card:hover {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: #10b981;
         }
         
         .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: #111827;
-            border-radius: 8px;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            color: white;
-            font-size: 1.25rem;
+            margin-bottom: 24px;
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 700;
         }
         
         .feature-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.375rem;
             font-weight: 700;
-            color: #111827;
-            margin-bottom: 12px;
+            color: #ffffff;
+            margin-bottom: 16px;
         }
         
         .feature-card p {
-            color: #6b7280;
-            line-height: 1.6;
-        }
-        
-        .stats-section {
-            padding: 120px 0;
-            background: #111827;
-            color: white;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 48px;
-            text-align: center;
-        }
-        
-        .stat-item h3 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-            color: white;
-        }
-        
-        .stat-item p {
             color: #9ca3af;
+            line-height: 1.6;
             font-size: 1rem;
         }
         
         .final-cta {
             padding: 120px 0;
-            background: white;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1f2937 100%);
             text-align: center;
         }
         
         .final-cta h2 {
-            font-size: 2.75rem;
-            font-weight: 800;
-            color: #111827;
-            margin-bottom: 16px;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 24px;
             letter-spacing: -0.025em;
         }
         
         .final-cta p {
-            font-size: 1.125rem;
-            color: #6b7280;
-            margin-bottom: 40px;
+            font-size: 1.25rem;
+            color: #9ca3af;
+            margin-bottom: 48px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -317,8 +351,8 @@
         }
         
         .final-cta .primary-button {
-            font-size: 1.125rem;
-            padding: 20px 40px;
+            font-size: 1.25rem;
+            padding: 24px 48px;
         }
         
         /* Mobile Responsive */
@@ -339,11 +373,16 @@
             }
             
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             
             .hero-text .subtitle {
                 font-size: 1.125rem;
+            }
+            
+            .phone-mockup {
+                width: 250px;
+                height: 500px;
             }
             
             .features-grid {
@@ -351,37 +390,32 @@
                 gap: 32px;
             }
             
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 32px;
-            }
-            
             .section-header h2 {
-                font-size: 2rem;
+                font-size: 2.25rem;
             }
             
             .final-cta h2 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
             .trust-indicators {
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
+                align-items: center;
+                gap: 16px;
             }
         }
         
         @media (max-width: 480px) {
             .hero-text h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
+            .phone-mockup {
+                width: 220px;
+                height: 440px;
             }
             
-            .stat-item h3 {
+            .final-cta h2 {
                 font-size: 2rem;
             }
         }
@@ -391,14 +425,14 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="logo">Enterprise</div>
+            <div class="logo">Turtle</div>
             <a href="coming-soon.html" class="nav-button"
                onclick="gtag('event', 'download_intent', {
                    'event_category': 'engagement',
                    'event_label': 'nav_download_button',
                    'value': 1
                });">
-                Download App
+                Download
             </a>
         </nav>
     </header>
@@ -408,9 +442,9 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Enterprise solutions for modern businesses</h1>
+                    <h1>Turtle</h1>
                     <p class="subtitle">
-                        Streamline operations, increase efficiency, and drive growth with our comprehensive business platform built for today's enterprises.
+                        Professional solutions designed for modern businesses. Experience the difference with our comprehensive platform.
                     </p>
                     
                     <div class="cta-section">
@@ -420,22 +454,42 @@
                                'event_label': 'hero_download_button',
                                'value': 1
                            });">
-                            Download Application
+                            Download Now
                         </a>
                     </div>
                     
                     <div class="trust-indicators">
-                        <div class="trust-item">Enterprise grade security</div>
+                        <div class="trust-item">Enterprise ready</div>
+                        <div class="trust-item">Secure platform</div>
                         <div class="trust-item">24/7 support</div>
-                        <div class="trust-item">SOC 2 compliant</div>
                     </div>
                 </div>
                 
                 <div class="hero-visual">
-                    <div class="dashboard-mockup">
-                        <div class="mockup-header"></div>
-                        <div class="mockup-content">
-                            Dashboard Preview
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="phone-header">
+                                TURTLE
+                            </div>
+                            <div class="dashboard-content">
+                                <div class="dashboard-card">
+                                    <div class="card-header">Status</div>
+                                    <div class="card-value">Active</div>
+                                    <div class="card-subtitle">All systems operational</div>
+                                </div>
+                                
+                                <div class="dashboard-card">
+                                    <div class="card-header">Performance</div>
+                                    <div class="card-accent">98.7%</div>
+                                    <div class="card-subtitle">Efficiency rating</div>
+                                </div>
+                                
+                                <div class="dashboard-card">
+                                    <div class="card-header">Analytics</div>
+                                    <div class="card-value">Live</div>
+                                    <div class="card-subtitle">Real-time monitoring</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -447,7 +501,7 @@
     <section class="features-section">
         <div class="container">
             <div class="section-header">
-                <h2>Built for enterprise</h2>
+                <h2>Built for professionals</h2>
                 <p>
                     Comprehensive tools and features designed to meet the demanding requirements of modern enterprises and growing businesses.
                 </p>
@@ -458,7 +512,7 @@
                     <div class="feature-icon">⚡</div>
                     <h3>High Performance</h3>
                     <p>
-                        Built on enterprise-grade infrastructure with 99.9% uptime SLA and sub-second response times across all operations.
+                        Built on enterprise-grade infrastructure with industry-leading performance standards and reliability guarantees.
                     </p>
                 </div>
                 
@@ -466,7 +520,7 @@
                     <div class="feature-icon">🔒</div>
                     <h3>Enterprise Security</h3>
                     <p>
-                        Bank-level encryption, SSO integration, and comprehensive audit trails ensure your data remains secure and compliant.
+                        Bank-level encryption and comprehensive security measures ensure your data remains protected at all times.
                     </p>
                 </div>
                 
@@ -474,32 +528,8 @@
                     <div class="feature-icon">📊</div>
                     <h3>Advanced Analytics</h3>
                     <p>
-                        Real-time insights and comprehensive reporting tools provide the data you need to make informed business decisions.
+                        Real-time insights and comprehensive reporting tools provide the data you need for informed decisions.
                     </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>99.9%</h3>
-                    <p>Uptime guaranteed</p>
-                </div>
-                <div class="stat-item">
-                    <h3>500+</h3>
-                    <p>Enterprise clients</p>
-                </div>
-                <div class="stat-item">
-                    <h3>24/7</h3>
-                    <p>Support available</p>
-                </div>
-                <div class="stat-item">
-                    <h3>10M+</h3>
-                    <p>Transactions processed</p>
                 </div>
             </div>
         </div>
@@ -508,9 +538,9 @@
     <!-- Final CTA Section -->
     <section class="final-cta">
         <div class="container">
-            <h2>Ready to transform your business?</h2>
+            <h2>Ready to begin?</h2>
             <p>
-                Join hundreds of enterprises already using our platform to streamline operations, increase efficiency, and drive sustainable growth.
+                Experience the next generation of professional solutions. Download Turtle today and discover what's possible.
             </p>
             <a href="coming-soon.html" class="primary-button"
                onclick="gtag('event', 'download_intent', {
@@ -518,7 +548,7 @@
                    'event_label': 'final_cta_download_button',
                    'value': 1
                });">
-                Download Application
+                Download Now
             </a>
         </div>
     </section>
