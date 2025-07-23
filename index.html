@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Amazing App - Download Now</title>
+    <title>Enterprise Solution - Download Now</title>
     
     <!-- Google Analytics - REPLACE GA_MEASUREMENT_ID with your actual ID -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
@@ -22,39 +22,68 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #040405;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: #1f2937;
             background: #ffffff;
-            overflow-x: hidden;
+            font-weight: 400;
         }
         
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #00C896 0%, #00D09C 50%, #00A478 100%);
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
+        .header {
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.4;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+            z-index: 100;
+        }
+        
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #111827;
+            letter-spacing: -0.025em;
+        }
+        
+        .nav-button {
+            background: #111827;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+        }
+        
+        .nav-button:hover {
+            background: #374151;
+        }
+        
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 120px;
+            background: #ffffff;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
-            position: relative;
-            z-index: 2;
+            padding: 0 32px;
         }
         
         .hero-content {
@@ -62,135 +91,116 @@
             grid-template-columns: 1fr 1fr;
             gap: 80px;
             align-items: center;
-            min-height: 80vh;
-        }
-        
-        .hero-text {
-            color: white;
         }
         
         .hero-text h1 {
-            font-size: 4rem;
-            font-weight: 700;
+            font-size: 3.75rem;
+            font-weight: 800;
             line-height: 1.1;
+            color: #111827;
             margin-bottom: 24px;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.025em;
         }
         
         .hero-text .subtitle {
             font-size: 1.25rem;
-            opacity: 0.9;
+            color: #6b7280;
             margin-bottom: 40px;
-            font-weight: 400;
             line-height: 1.6;
+            font-weight: 400;
         }
         
-        .cta-button {
+        .cta-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .primary-button {
             display: inline-flex;
             align-items: center;
-            background: #ffffff;
-            color: #00C896;
+            justify-content: center;
+            background: #111827;
+            color: white;
             padding: 16px 32px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             text-decoration: none;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            margin-bottom: 16px;
+            width: fit-content;
         }
         
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            background: #f8f9fa;
+        .primary-button:hover {
+            background: #374151;
+            transform: translateY(-1px);
         }
         
-        .trust-line {
+        .trust-indicators {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-top: 32px;
+            color: #6b7280;
             font-size: 0.875rem;
-            opacity: 0.8;
-            color: white;
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .trust-item::before {
+            content: '✓';
+            color: #10b981;
+            font-weight: 600;
         }
         
         .hero-visual {
             display: flex;
-            align-items: center;
             justify-content: center;
             position: relative;
         }
         
-        .phone-mockup {
-            width: 280px;
-            height: 560px;
-            background: #1a1a1a;
-            border-radius: 40px;
-            padding: 8px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .phone-screen {
+        .dashboard-mockup {
             width: 100%;
-            height: 100%;
+            max-width: 480px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .mockup-header {
+            height: 40px;
+            background: #ffffff;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+        }
+        
+        .mockup-content {
+            height: 300px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 32px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
             color: white;
+            font-size: 1.5rem;
             font-weight: 600;
         }
         
         .features-section {
             padding: 120px 0;
-            background: #fafafa;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 60px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .feature {
-            text-align: center;
-            padding: 40px 20px;
-        }
-        
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #00C896, #00D09C);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 2rem;
-        }
-        
-        .feature h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: #040405;
-        }
-        
-        .feature p {
-            color: #6b7280;
-            font-size: 1rem;
-            line-height: 1.6;
+            background: #f9fafb;
         }
         
         .section-header {
@@ -199,52 +209,116 @@
         }
         
         .section-header h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #040405;
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: #111827;
             margin-bottom: 16px;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.025em;
         }
         
         .section-header p {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             color: #6b7280;
-            max-width: 600px;
+            max-width: 640px;
             margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            transition: box-shadow 0.2s ease;
+        }
+        
+        .feature-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: #111827;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.25rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+        
+        .feature-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        
+        .stats-section {
+            padding: 120px 0;
+            background: #111827;
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 48px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: white;
+        }
+        
+        .stat-item p {
+            color: #9ca3af;
+            font-size: 1rem;
         }
         
         .final-cta {
             padding: 120px 0;
-            background: #040405;
+            background: white;
             text-align: center;
-            color: white;
         }
         
         .final-cta h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
         }
         
         .final-cta p {
-            font-size: 1.25rem;
-            opacity: 0.8;
+            font-size: 1.125rem;
+            color: #6b7280;
             margin-bottom: 40px;
-            max-width: 500px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
         }
         
-        .final-cta .cta-button {
-            background: #00C896;
-            color: white;
-            font-size: 1.2rem;
+        .final-cta .primary-button {
+            font-size: 1.125rem;
             padding: 20px 40px;
-        }
-        
-        .final-cta .cta-button:hover {
-            background: #00D09C;
         }
         
         /* Mobile Responsive */
@@ -253,9 +327,14 @@
                 padding: 0 20px;
             }
             
+            .hero {
+                padding-top: 120px;
+                padding-bottom: 80px;
+            }
+            
             .hero-content {
                 grid-template-columns: 1fr;
-                gap: 60px;
+                gap: 48px;
                 text-align: center;
             }
             
@@ -264,37 +343,31 @@
             }
             
             .hero-text .subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .phone-mockup {
-                width: 220px;
-                height: 440px;
-            }
-            
-            .features-section {
-                padding: 80px 0;
+                font-size: 1.125rem;
             }
             
             .features-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 32px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
             }
             
             .section-header h2 {
                 font-size: 2rem;
             }
             
-            .section-header p {
-                font-size: 1.1rem;
-            }
-            
             .final-cta h2 {
                 font-size: 2rem;
             }
             
-            .final-cta p {
-                font-size: 1.1rem;
+            .trust-indicators {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
             }
         }
         
@@ -303,51 +376,66 @@
                 font-size: 2rem;
             }
             
-            .phone-mockup {
-                width: 180px;
-                height: 360px;
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
             
-            .cta-button {
-                padding: 14px 28px;
-                font-size: 1rem;
-            }
-            
-            .final-cta .cta-button {
-                padding: 16px 32px;
-                font-size: 1.1rem;
+            .stat-item h3 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Enterprise</div>
+            <a href="coming-soon.html" class="nav-button"
+               onclick="gtag('event', 'download_intent', {
+                   'event_category': 'engagement',
+                   'event_label': 'nav_download_button',
+                   'value': 1
+               });">
+                Download App
+            </a>
+        </nav>
+    </header>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Investing made simple</h1>
+                    <h1>Enterprise solutions for modern businesses</h1>
                     <p class="subtitle">
-                        Start building your financial future today with our intuitive, 
-                        powerful investment platform designed for everyone.
+                        Streamline operations, increase efficiency, and drive growth with our comprehensive business platform built for today's enterprises.
                     </p>
-                    <a href="coming-soon.html" class="cta-button" 
-                       onclick="gtag('event', 'download_intent', {
-                           'event_category': 'engagement',
-                           'event_label': 'hero_download_button',
-                           'value': 1
-                       });">
-                        Download App
-                    </a>
-                    <div class="trust-line">
-                        Free to download • No minimum balance • SIPC protected
+                    
+                    <div class="cta-section">
+                        <a href="coming-soon.html" class="primary-button"
+                           onclick="gtag('event', 'download_intent', {
+                               'event_category': 'engagement',
+                               'event_label': 'hero_download_button',
+                               'value': 1
+                           });">
+                            Download Application
+                        </a>
+                    </div>
+                    
+                    <div class="trust-indicators">
+                        <div class="trust-item">Enterprise grade security</div>
+                        <div class="trust-item">24/7 support</div>
+                        <div class="trust-item">SOC 2 compliant</div>
                     </div>
                 </div>
                 
                 <div class="hero-visual">
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            Your App
+                    <div class="dashboard-mockup">
+                        <div class="mockup-header"></div>
+                        <div class="mockup-content">
+                            Dashboard Preview
                         </div>
                     </div>
                 </div>
@@ -359,39 +447,59 @@
     <section class="features-section">
         <div class="container">
             <div class="section-header">
-                <h2>Built for you</h2>
+                <h2>Built for enterprise</h2>
                 <p>
-                    Everything you need to take control of your financial future, 
-                    all in one beautifully designed app.
+                    Comprehensive tools and features designed to meet the demanding requirements of modern enterprises and growing businesses.
                 </p>
             </div>
             
             <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">📱</div>
-                    <h3>Mobile First</h3>
-                    <p>
-                        Trade, invest, and manage your portfolio anywhere with our 
-                        lightning-fast mobile app built for the modern investor.
-                    </p>
-                </div>
-                
-                <div class="feature">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Bank-Level Security</h3>
-                    <p>
-                        Your money and data are protected with the same security 
-                        standards used by the world's largest financial institutions.
-                    </p>
-                </div>
-                
-                <div class="feature">
+                <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3>Instant Everything</h3>
+                    <h3>High Performance</h3>
                     <p>
-                        No waiting. Instant deposits, instant trades, instant access 
-                        to your money when you need it most.
+                        Built on enterprise-grade infrastructure with 99.9% uptime SLA and sub-second response times across all operations.
                     </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Enterprise Security</h3>
+                    <p>
+                        Bank-level encryption, SSO integration, and comprehensive audit trails ensure your data remains secure and compliant.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Advanced Analytics</h3>
+                    <p>
+                        Real-time insights and comprehensive reporting tools provide the data you need to make informed business decisions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>99.9%</h3>
+                    <p>Uptime guaranteed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Enterprise clients</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Support available</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10M+</h3>
+                    <p>Transactions processed</p>
                 </div>
             </div>
         </div>
@@ -400,18 +508,17 @@
     <!-- Final CTA Section -->
     <section class="final-cta">
         <div class="container">
-            <h2>Ready to get started?</h2>
+            <h2>Ready to transform your business?</h2>
             <p>
-                Join millions of people building their financial future 
-                with our platform. Download now and start investing today.
+                Join hundreds of enterprises already using our platform to streamline operations, increase efficiency, and drive sustainable growth.
             </p>
-            <a href="coming-soon.html" class="cta-button"
+            <a href="coming-soon.html" class="primary-button"
                onclick="gtag('event', 'download_intent', {
                    'event_category': 'engagement',
                    'event_label': 'final_cta_download_button',
                    'value': 1
                });">
-                Download App Now
+                Download Application
             </a>
         </div>
     </section>
