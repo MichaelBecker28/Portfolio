@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Your Amazing App</title>
+    
+    <!-- Google Analytics - REPLACE GA_MEASUREMENT_ID with your actual ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            padding: 60px 50px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            text-align: center;
+            max-width: 550px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #27ae60, #2ecc71, #f39c12);
+        }
+        
+        .rocket {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        h1 {
+            font-size: 2.8em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .main-message {
+            font-size: 1.3em;
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .timeline {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .timeline-text {
+            font-size: 1.1em;
+            color: #34495e;
+            font-weight: 600;
+        }
+        
+        .email-section {
+            margin: 40px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+        
+        .email-heading {
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .email-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        input[type="email"] {
+            padding: 18px 20px;
+            font-size: 1.1em;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            width: 100%;
+            transition: border-color 0.3s ease;
+            background: white;
+        }
+        
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        .notify-btn {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 18px 35px;
+            font-size: 1.2em;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(39, 174, 96, 0.3);
+        }
+        
+        .notify-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(39, 174, 96, 0.4);
+            background: linear-gradient(45deg, #219a52, #27ae60);
+        }
+        
+        .notify-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .privacy-text {
+            font-size: 0.9em;
+            color: #95a5a6;
+            margin-top: 20px;
+            line-height: 1.4;
+        }
+        
+        .features-preview {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #ecf0f1;
+        }
+        
+        .features-heading {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            text-align: center;
+        }
+        
+        .feature-item {
+            padding: 15px 10px;
+        }
+        
+        .feature-icon {
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+        
+        .feature-label {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 1px solid #c3e6cb;
+            display: none;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .rocket {
+                font-size: 3em;
+            }
+            
+            .email-form {
+                gap: 12px;
+            }
+            
+            input[type="email"] {
+                padding: 15px 18px;
+                font-size: 1em;
+            }
+            
+            .notify-btn {
+                padding: 15px 25px;
+                font-size: 1.1em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.9em;
+            }
+            
+            .main-message {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="rocket">🚀</div>
+        <h1>Almost Ready!</h1>
+        <p class="main-message">
+            Thanks for your interest in downloading our app! We're putting the finishing touches 
+            on an amazing experience just for you.
+        </p>
+        
+        <div class="timeline">
+            <div class="timeline-text">
+                🎯 Expected Launch: Next Month
+            </div>
+        </div>
+        
+        <div class="email-section">
+            <div class="email-heading">Be First to Know When We Launch</div>
+            <form class="email-form" id="emailForm">
+                <input 
+                    type="email" 
+                    id="emailInput"
+                    placeholder="Enter your email address" 
+                    required
+                    autocomplete="email"
+                >
+                <button type="submit" class="notify-btn" id="notifyBtn">
+                    Notify Me When Ready
+                </button>
+            </form>
+            
+            <div class="success-message" id="successMessage">
+                🎉 Perfect! You'll be among the first to get access when we launch.
+            </div>
+            
+            <p class="privacy-text">
+                We respect your privacy. You'll only receive launch notifications and app updates. 
+                No spam, ever. Unsubscribe anytime.
+            </p>
+        </div>
+        
+        <div class="features-preview">
+            <div class="features-heading">What to Expect</div>
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-label">Lightning Fast</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <div class="feature-label">Beautiful Design</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-label">Secure & Private</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-label">Works Everywhere</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('emailInput').value;
+            const btn = document.getElementById('notifyBtn');
+            const successMsg = document.getElementById('successMessage');
+            
+            if (email) {
+                // Track email signup in Google Analytics
+                gtag('event', 'email_signup', {
+                    'event_category': 'engagement',
+                    'event_label': 'coming_soon_page',
+                    'value': 1
+                });
+                
+                // Disable form and show success
+                btn.disabled = true;
+                btn.textContent = 'Thank You!';
+                document.getElementById('emailInput').disabled = true;
+                successMsg.style.display = 'block';
+                
+                // In a real app, you'd send this email to your backend
+                console.log('Email captured:', email);
+                
+                // Optional: Store in localStorage for testing
+                localStorage.setItem('signupEmail', email);
+                localStorage.setItem('signupDate', new Date().toISOString());
+            }
+        });
+        
+        // Track page view for coming soon page
+        gtag('event', 'page_view', {
+            'page_title': 'Coming Soon Page',
+            'page_location': window.location.href
+        });
+    </script>
+</body>
+</html>
