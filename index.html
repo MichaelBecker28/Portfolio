@@ -77,7 +77,7 @@
             animation: global-float 25s infinite linear;
         }
         
-        /* 30 Global Particles */
+        /* 50 Global Particles - Way More Stars */
         .global-particle:nth-child(1) { left: 5%; top: 10%; animation-delay: 0s; animation-duration: 20s; }
         .global-particle:nth-child(2) { left: 15%; top: 30%; animation-delay: 3s; animation-duration: 25s; }
         .global-particle:nth-child(3) { left: 25%; top: 60%; animation-delay: 6s; animation-duration: 18s; }
@@ -108,6 +108,26 @@
         .global-particle:nth-child(28) { left: 23%; top: 98%; animation-delay: 81s; animation-duration: 21s; }
         .global-particle:nth-child(29) { left: 33%; top: 48%; animation-delay: 84s; animation-duration: 19s; }
         .global-particle:nth-child(30) { left: 43%; top: 68%; animation-delay: 87s; animation-duration: 27s; }
+        .global-particle:nth-child(31) { left: 53%; top: 12%; animation-delay: 90s; animation-duration: 18s; }
+        .global-particle:nth-child(32) { left: 63%; top: 42%; animation-delay: 93s; animation-duration: 25s; }
+        .global-particle:nth-child(33) { left: 73%; top: 72%; animation-delay: 96s; animation-duration: 22s; }
+        .global-particle:nth-child(34) { left: 83%; top: 32%; animation-delay: 99s; animation-duration: 20s; }
+        .global-particle:nth-child(35) { left: 93%; top: 62%; animation-delay: 102s; animation-duration: 24s; }
+        .global-particle:nth-child(36) { left: 7%; top: 22%; animation-delay: 105s; animation-duration: 19s; }
+        .global-particle:nth-child(37) { left: 17%; top: 82%; animation-delay: 108s; animation-duration: 26s; }
+        .global-particle:nth-child(38) { left: 27%; top: 52%; animation-delay: 111s; animation-duration: 17s; }
+        .global-particle:nth-child(39) { left: 37%; top: 2%; animation-delay: 114s; animation-duration: 23s; }
+        .global-particle:nth-child(40) { left: 47%; top: 92%; animation-delay: 117s; animation-duration: 21s; }
+        .global-particle:nth-child(41) { left: 57%; top: 37%; animation-delay: 120s; animation-duration: 28s; }
+        .global-particle:nth-child(42) { left: 67%; top: 67%; animation-delay: 123s; animation-duration: 16s; }
+        .global-particle:nth-child(43) { left: 77%; top: 7%; animation-delay: 126s; animation-duration: 25s; }
+        .global-particle:nth-child(44) { left: 87%; top: 77%; animation-delay: 129s; animation-duration: 18s; }
+        .global-particle:nth-child(45) { left: 97%; top: 47%; animation-delay: 132s; animation-duration: 22s; }
+        .global-particle:nth-child(46) { left: 4%; top: 17%; animation-delay: 135s; animation-duration: 20s; }
+        .global-particle:nth-child(47) { left: 14%; top: 87%; animation-delay: 138s; animation-duration: 24s; }
+        .global-particle:nth-child(48) { left: 24%; top: 27%; animation-delay: 141s; animation-duration: 19s; }
+        .global-particle:nth-child(49) { left: 34%; top: 77%; animation-delay: 144s; animation-duration: 27s; }
+        .global-particle:nth-child(50) { left: 44%; top: 7%; animation-delay: 147s; animation-duration: 23s; }
         
         .global-particle:nth-child(odd) {
             width: 1px;
@@ -123,9 +143,16 @@
             box-shadow: 0 0 8px #9a8cb4, 0 0 15px #8b7ab8;
         }
         
-        .global-particle:nth-child(5n) {
+        .global-particle:nth-child(7n) {
             background: #ffffff;
             box-shadow: 0 0 10px #ffffff, 0 0 20px #8b7ab8;
+        }
+        
+        .global-particle:nth-child(11n) {
+            width: 4px;
+            height: 4px;
+            background: #c9d1d9;
+            box-shadow: 0 0 12px #c9d1d9, 0 0 24px #8b7ab8;
         }
         
         @keyframes global-float {
@@ -487,16 +514,20 @@
             font-size: 4rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #8b949e 0%, #c9d1d9 50%, #6c757d 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #8b949e;
+            text-shadow: 0 0 10px rgba(139, 148, 158, 0.5);
             animation: title-glow 3s ease-in-out infinite alternate;
         }
         
         @keyframes title-glow {
-            0% { filter: drop-shadow(0 0 5px #8b949e); }
-            100% { filter: drop-shadow(0 0 20px #6c757d); }
+            0% { 
+                filter: drop-shadow(0 0 5px #8b949e);
+                text-shadow: 0 0 10px rgba(139, 148, 158, 0.5);
+            }
+            100% { 
+                filter: drop-shadow(0 0 20px #8b949e);
+                text-shadow: 0 0 20px rgba(139, 148, 158, 0.8);
+            }
         }
         
         .hero .tagline {
@@ -788,6 +819,26 @@
 <body>
     <!-- Global Particles Background -->
     <div class="global-particles">
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
         <div class="global-particle"></div>
         <div class="global-particle"></div>
         <div class="global-particle"></div>
