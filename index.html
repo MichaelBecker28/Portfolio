@@ -1,4 +1,41 @@
-<!DOCTYPE html>
+/* Get in Touch Section */
+        .get-in-touch {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #1a0033 0%, #2d1b69 50%, #1a0033 100%);
+            text-align: center;
+            position: relative;
+            animation: section-drift 18s ease-in-out infinite;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(26, 26, 26, 0.8);
+            padding: 2rem;
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%);
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #8b949e;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(10, 10, 15, 0.8);
+            border: 1px solid #6c757d;
+            color: #e4e6ea;
+            font<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,12 +52,12 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
             color: #e4e6ea;
-            background: #0a0a0f;
+            background: #050508;
             overflow-x: hidden;
             position: relative;
         }
         
-        /* Global Particles Background */
+        /* Global Particles Background - More Stars */
         .global-particles {
             position: fixed;
             top: 0;
@@ -40,6 +77,7 @@
             animation: global-float 25s infinite linear;
         }
         
+        /* 30 Global Particles */
         .global-particle:nth-child(1) { left: 5%; top: 10%; animation-delay: 0s; animation-duration: 20s; }
         .global-particle:nth-child(2) { left: 15%; top: 30%; animation-delay: 3s; animation-duration: 25s; }
         .global-particle:nth-child(3) { left: 25%; top: 60%; animation-delay: 6s; animation-duration: 18s; }
@@ -55,6 +93,21 @@
         .global-particle:nth-child(13) { left: 50%; top: 35%; animation-delay: 36s; animation-duration: 27s; }
         .global-particle:nth-child(14) { left: 70%; top: 85%; animation-delay: 39s; animation-duration: 20s; }
         .global-particle:nth-child(15) { left: 90%; top: 25%; animation-delay: 42s; animation-duration: 24s; }
+        .global-particle:nth-child(16) { left: 8%; top: 45%; animation-delay: 45s; animation-duration: 19s; }
+        .global-particle:nth-child(17) { left: 18%; top: 65%; animation-delay: 48s; animation-duration: 21s; }
+        .global-particle:nth-child(18) { left: 28%; top: 15%; animation-delay: 51s; animation-duration: 26s; }
+        .global-particle:nth-child(19) { left: 38%; top: 95%; animation-delay: 54s; animation-duration: 18s; }
+        .global-particle:nth-child(20) { left: 48%; top: 55%; animation-delay: 57s; animation-duration: 22s; }
+        .global-particle:nth-child(21) { left: 58%; top: 8%; animation-delay: 60s; animation-duration: 25s; }
+        .global-particle:nth-child(22) { left: 68%; top: 38%; animation-delay: 63s; animation-duration: 20s; }
+        .global-particle:nth-child(23) { left: 78%; top: 78%; animation-delay: 66s; animation-duration: 23s; }
+        .global-particle:nth-child(24) { left: 88%; top: 18%; animation-delay: 69s; animation-duration: 17s; }
+        .global-particle:nth-child(25) { left: 98%; top: 88%; animation-delay: 72s; animation-duration: 29s; }
+        .global-particle:nth-child(26) { left: 3%; top: 28%; animation-delay: 75s; animation-duration: 16s; }
+        .global-particle:nth-child(27) { left: 13%; top: 58%; animation-delay: 78s; animation-duration: 24s; }
+        .global-particle:nth-child(28) { left: 23%; top: 98%; animation-delay: 81s; animation-duration: 21s; }
+        .global-particle:nth-child(29) { left: 33%; top: 48%; animation-delay: 84s; animation-duration: 19s; }
+        .global-particle:nth-child(30) { left: 43%; top: 68%; animation-delay: 87s; animation-duration: 27s; }
         
         .global-particle:nth-child(odd) {
             width: 1px;
@@ -68,6 +121,11 @@
             height: 3px;
             background: #9a8cb4;
             box-shadow: 0 0 8px #9a8cb4, 0 0 15px #8b7ab8;
+        }
+        
+        .global-particle:nth-child(5n) {
+            background: #ffffff;
+            box-shadow: 0 0 10px #ffffff, 0 0 20px #8b7ab8;
         }
         
         @keyframes global-float {
@@ -89,6 +147,99 @@
             }
         }
         
+        /* Shooting Stars */
+        .shooting-stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .shooting-star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(45deg, #ffffff, transparent);
+            border-radius: 50%;
+            opacity: 0;
+            animation: shoot 3s ease-out infinite;
+        }
+        
+        .shooting-star::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            height: 1px;
+            width: 50px;
+            background: linear-gradient(90deg, #ffffff, transparent);
+            transform: translateY(-50%);
+        }
+        
+        .shooting-star:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 2.5s;
+        }
+        
+        .shooting-star:nth-child(2) {
+            top: 30%;
+            left: 80%;
+            animation-delay: 4s;
+            animation-duration: 3s;
+        }
+        
+        .shooting-star:nth-child(3) {
+            top: 60%;
+            left: 20%;
+            animation-delay: 8s;
+            animation-duration: 2.8s;
+        }
+        
+        .shooting-star:nth-child(4) {
+            top: 80%;
+            left: 70%;
+            animation-delay: 12s;
+            animation-duration: 2.2s;
+        }
+        
+        .shooting-star:nth-child(5) {
+            top: 20%;
+            left: 50%;
+            animation-delay: 16s;
+            animation-duration: 3.2s;
+        }
+        
+        .shooting-star:nth-child(6) {
+            top: 70%;
+            left: 90%;
+            animation-delay: 20s;
+            animation-duration: 2.7s;
+        }
+        
+        @keyframes shoot {
+            0% {
+                opacity: 0;
+                transform: translateX(0) translateY(0) scale(0);
+            }
+            10% {
+                opacity: 1;
+                transform: translateX(0) translateY(0) scale(1);
+            }
+            90% {
+                opacity: 1;
+                transform: translateX(-300px) translateY(200px) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-400px) translateY(300px) scale(0);
+            }
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -102,7 +253,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 15, 0.95);
+            background: rgba(5, 5, 8, 0.95);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid #4a4a4a;
             z-index: 1000;
@@ -163,13 +314,13 @@
             justify-content: center;
             text-align: center;
             background: 
-                radial-gradient(ellipse at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 40% 80%, rgba(139, 122, 184, 0.4) 0%, transparent 50%),
-                radial-gradient(ellipse at 0% 90%, rgba(107, 91, 149, 0.2) 0%, transparent 50%),
-                radial-gradient(ellipse at 100% 10%, rgba(154, 140, 180, 0.25) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(75, 0, 130, 0.1) 0%, transparent 70%),
-                linear-gradient(135deg, #0a0014 0%, #1a0033 25%, #2d1b69 50%, #1a0033 75%, #0a0014 100%);
+                radial-gradient(ellipse at 20% 50%, rgba(120, 119, 198, 0.2) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 60%),
+                radial-gradient(ellipse at 40% 80%, rgba(139, 122, 184, 0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 0% 90%, rgba(107, 91, 149, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 100% 10%, rgba(154, 140, 180, 0.2) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 50%, rgba(75, 0, 130, 0.08) 0%, transparent 80%),
+                linear-gradient(135deg, #050508 0%, #0a0014 25%, #1a0033 50%, #0a0014 75%, #050508 100%);
             position: relative;
             overflow: hidden;
         }
@@ -182,20 +333,25 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.8), transparent),
-                radial-gradient(1px 1px at 40px 70px, rgba(139,122,184,0.4), transparent),
-                radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.6), transparent),
-                radial-gradient(2px 2px at 140px 80px, rgba(154,140,180,0.3), transparent),
-                radial-gradient(1px 1px at 180px 10px, rgba(255,255,255,0.7), transparent),
+                radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.9), transparent),
+                radial-gradient(1px 1px at 40px 70px, rgba(139,122,184,0.6), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.7), transparent),
+                radial-gradient(2px 2px at 140px 80px, rgba(154,140,180,0.4), transparent),
+                radial-gradient(1px 1px at 180px 10px, rgba(255,255,255,0.8), transparent),
                 radial-gradient(1px 1px at 220px 60px, rgba(139,122,184,0.5), transparent),
-                radial-gradient(2px 2px at 260px 90px, rgba(255,255,255,0.4), transparent),
-                radial-gradient(1px 1px at 300px 120px, rgba(107,91,149,0.3), transparent),
-                radial-gradient(2px 2px at 340px 30px, rgba(255,255,255,0.8), transparent),
-                radial-gradient(1px 1px at 380px 150px, rgba(154,140,180,0.6), transparent);
+                radial-gradient(1px 1px at 260px 90px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(1px 1px at 300px 120px, rgba(107,91,149,0.4), transparent),
+                radial-gradient(2px 2px at 340px 30px, rgba(255,255,255,0.9), transparent),
+                radial-gradient(1px 1px at 380px 150px, rgba(154,140,180,0.7), transparent),
+                radial-gradient(1px 1px at 60px 200px, rgba(255,255,255,0.5), transparent),
+                radial-gradient(2px 2px at 120px 250px, rgba(139,122,184,0.3), transparent),
+                radial-gradient(1px 1px at 200px 180px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 280px 220px, rgba(154,140,180,0.6), transparent),
+                radial-gradient(1px 1px at 360px 280px, rgba(255,255,255,0.4), transparent);
             background-repeat: repeat;
             background-size: 400px 400px;
             animation: galaxy-rotate 200s infinite linear;
-            opacity: 0.8;
+            opacity: 0.9;
         }
         
         .hero::after {
@@ -206,7 +362,7 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(ellipse at center, transparent 40%, rgba(10, 0, 20, 0.8) 100%);
+                radial-gradient(ellipse at center, transparent 30%, rgba(5, 5, 8, 0.6) 100%);
             pointer-events: none;
         }
         
@@ -402,7 +558,7 @@
         /* About Section */
         .about {
             padding: 5rem 0;
-            background: #120021;
+            background: #070710;
             position: relative;
             animation: section-drift 20s ease-in-out infinite;
         }
@@ -410,6 +566,25 @@
         @keyframes section-drift {
             0%, 100% { transform: translateX(0px); }
             50% { transform: translateX(5px); }
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #e4e6ea;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            color: #c9d1d9;
+            margin-bottom: 1.5rem;
         }
         
         .about-content {
@@ -466,7 +641,7 @@
         /* Projects Section */
         .projects {
             padding: 5rem 0;
-            background: #0a0a0f;
+            background: #050508;
             position: relative;
             animation: section-drift 25s ease-in-out infinite reverse;
         }
@@ -544,7 +719,7 @@
         /* Contact Section */
         .contact {
             padding: 5rem 0;
-            background: #120021;
+            background: #070710;
             text-align: center;
             animation: section-drift 15s ease-in-out infinite;
         }
@@ -628,16 +803,41 @@
         <div class="global-particle"></div>
         <div class="global-particle"></div>
         <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+    </div>
+
+    <!-- Shooting Stars -->
+    <div class="shooting-stars">
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
     </div>
 
     <nav>
         <div class="container">
             <a href="#" class="logo">Michael S Becker</a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -672,7 +872,7 @@
                 <p>Passionate about creating innovative solutions through technology. Specializing in embedded systems, software development, and engineering design with a focus on real-world impact.</p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn-primary">View My Work</a>
-                    <a href="#contact" class="btn-secondary">Get In Touch</a>
+                    <a href="contact.html" class="btn-secondary">Get In Touch</a>
                 </div>
             </div>
         </div>
@@ -716,25 +916,25 @@
                 <div class="project-card">
                     <h3>Senior Design Project</h3>
                     <p>Description of your capstone project, your role, skills gained, and big picture contribution.</p>
-                    <a href="#" class="project-link">Learn More →</a>
+                    <a href="senior-design.html" class="project-link">Learn More →</a>
                 </div>
                 
                 <div class="project-card">
                     <h3>Project Two</h3>
                     <p>Description of another significant project, technologies used, and outcomes achieved.</p>
-                    <a href="#" class="project-link">Learn More →</a>
+                    <a href="project-two.html" class="project-link">Learn More →</a>
                 </div>
                 
                 <div class="project-card">
                     <h3>Project Three</h3>
                     <p>Another project showcasing different skills and approaches to problem solving.</p>
-                    <a href="#" class="project-link">Learn More →</a>
+                    <a href="project-three.html" class="project-link">Learn More →</a>
                 </div>
                 
                 <div class="project-card">
                     <h3>Project Four</h3>
                     <p>Additional project demonstrating breadth of experience and technical capabilities.</p>
-                    <a href="#" class="project-link">Learn More →</a>
+                    <a href="project-four.html" class="project-link">Learn More →</a>
                 </div>
             </div>
         </div>
@@ -745,10 +945,10 @@
             <h2>Let's Work Together</h2>
             <p>Have a question or want to collaborate? I'd love to hear from you.</p>
             <div class="contact-info">
-                <a href="mailto:your.email@example.com" class="contact-item">Email</a>
-                <a href="https://linkedin.com/in/yourprofile" class="contact-item">LinkedIn</a>
-                <a href="https://github.com/yourusername" class="contact-item">GitHub</a>
-                <a href="resume.pdf" class="contact-item">Resume</a>
+                <a href="mailto:michael.becker@example.com" class="contact-item">Email</a>
+                <a href="https://linkedin.com/in/michaelbecker" class="contact-item">LinkedIn</a>
+                <a href="https://github.com/michaeibecker28" class="contact-item">GitHub</a>
+                <a href="contact.html" class="contact-item">Get In Touch</a>
             </div>
         </div>
     </section>
