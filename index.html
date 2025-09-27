@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Engineering Portfolio</title>
+    <title>Michael S Becker - Engineering Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -20,7 +20,7 @@
             position: relative;
         }
         
-        /* Global Particles Background - More Stars */
+        /* Global Particles Background */
         .global-particles {
             position: fixed;
             top: 0;
@@ -40,7 +40,7 @@
             animation: global-float 25s infinite linear;
         }
         
-        /* 50 Global Particles - Way More Stars */
+        /* 50 Global Particles */
         .global-particle:nth-child(1) { left: 5%; top: 10%; animation-delay: 0s; animation-duration: 20s; }
         .global-particle:nth-child(2) { left: 15%; top: 30%; animation-delay: 3s; animation-duration: 25s; }
         .global-particle:nth-child(3) { left: 25%; top: 60%; animation-delay: 6s; animation-duration: 18s; }
@@ -203,65 +203,7 @@
             width: 100%;
         }
         
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(5, 5, 8, 0.95);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid #4a4a4a;
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-        
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #8b949e;
-            text-decoration: none;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            color: #e4e6ea;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-        
-        .nav-links a:hover {
-            color: #8b949e;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #8b949e;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero Section - Real Galaxy Background */
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -325,106 +267,6 @@
             0% { transform: rotate(0deg) scale(1); }
             50% { transform: rotate(180deg) scale(1.05); }
             100% { transform: rotate(360deg) scale(1); }
-        }
-        
-        /* Floating Particles Animation - Brighter Stars */
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #c77dff;
-            box-shadow: 0 0 10px #c77dff, 0 0 20px #9d4edd, 0 0 30px #e0aaff;
-            animation: float-particles 15s infinite linear;
-        }
-        
-        .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
-        .particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 18s; }
-        .particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 14s; }
-        .particle:nth-child(4) { left: 40%; animation-delay: 6s; animation-duration: 16s; }
-        .particle:nth-child(5) { left: 50%; animation-delay: 8s; animation-duration: 20s; }
-        .particle:nth-child(6) { left: 60%; animation-delay: 10s; animation-duration: 13s; }
-        .particle:nth-child(7) { left: 70%; animation-delay: 1s; animation-duration: 17s; }
-        .particle:nth-child(8) { left: 80%; animation-delay: 3s; animation-duration: 15s; }
-        .particle:nth-child(9) { left: 90%; animation-delay: 5s; animation-duration: 19s; }
-        .particle:nth-child(10) { left: 15%; animation-delay: 7s; animation-duration: 11s; }
-        .particle:nth-child(11) { left: 25%; animation-delay: 9s; animation-duration: 21s; }
-        .particle:nth-child(12) { left: 35%; animation-delay: 11s; animation-duration: 14s; }
-        .particle:nth-child(13) { left: 45%; animation-delay: 13s; animation-duration: 16s; }
-        .particle:nth-child(14) { left: 55%; animation-delay: 15s; animation-duration: 12s; }
-        .particle:nth-child(15) { left: 65%; animation-delay: 2s; animation-duration: 18s; }
-        .particle:nth-child(16) { left: 75%; animation-delay: 4s; animation-duration: 20s; }
-        .particle:nth-child(17) { left: 85%; animation-delay: 6s; animation-duration: 13s; }
-        .particle:nth-child(18) { left: 95%; animation-delay: 8s; animation-duration: 17s; }
-        .particle:nth-child(19) { left: 5%; animation-delay: 10s; animation-duration: 15s; }
-        .particle:nth-child(20) { left: 75%; animation-delay: 12s; animation-duration: 19s; }
-        
-        /* Different sizes and colors for variety */
-        .particle:nth-child(odd) {
-            width: 3px;
-            height: 3px;
-            background: #9d4edd;
-            box-shadow: 0 0 8px #9d4edd, 0 0 15px #c77dff;
-        }
-        
-        .particle:nth-child(3n) {
-            width: 5px;
-            height: 5px;
-            background: #e0aaff;
-            box-shadow: 0 0 12px #e0aaff, 0 0 25px #c77dff, 0 0 35px #9d4edd;
-        }
-        
-        .particle:nth-child(5n) {
-            background: #7209b7;
-            box-shadow: 0 0 15px #7209b7, 0 0 30px #9d4edd;
-        }
-        
-        .particle:nth-child(7n) {
-            background: #f72585;
-            box-shadow: 0 0 20px #f72585, 0 0 40px #c77dff;
-        }
-        
-        @keyframes float-particles {
-            0% {
-                transform: translateY(100vh) scale(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) scale(1) rotate(360deg);
-                opacity: 0;
-            }
-        }
-        
-        /* Twinkling effect for some particles */
-        .particle:nth-child(even) {
-            animation: float-particles 15s infinite linear, twinkle 2s infinite ease-in-out;
-        }
-        
-        @keyframes twinkle {
-            0%, 100% { 
-                opacity: 0.4;
-                transform: scale(1);
-            }
-            50% { 
-                opacity: 1;
-                transform: scale(1.3);
-            }
         }
         
         .hero-content {
@@ -510,7 +352,7 @@
         
         .btn-secondary:hover {
             background: #8b949e;
-            color: #0a0a0f;
+            color: #050508;
             transform: translateY(-2px);
         }
         
@@ -525,25 +367,6 @@
         @keyframes section-drift {
             0%, 100% { transform: translateX(0px); }
             50% { transform: translateX(5px); }
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .about-text h2 {
-            font-size: 2.5rem;
-            color: #e4e6ea;
-            margin-bottom: 1.5rem;
-        }
-        
-        .about-text p {
-            font-size: 1.1rem;
-            color: #c9d1d9;
-            margin-bottom: 1.5rem;
         }
         
         .about-content {
@@ -801,39 +624,18 @@
 
     <nav>
         <div class="container">
-            <a href="#" class="logo">Michael S Becker</a>
+            <a href="index.html" class="logo">Michael S Becker</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="reflections.html">Reflections</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="hero" id="home">
-        <div class="particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
         <div class="container">
             <div class="hero-content">
                 <h1>Michael S Becker</h1>
