@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflections - Michael S Becker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #e4e6ea;
+            background: #050508;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Global Particles Background */
+        .global-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .global-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #8b7ab8;
+            box-shadow: 0 0 6px #8b7ab8, 0 0 12px #6b5b95;
+            animation: global-float 25s infinite linear;
+        }
+        
+        .global-particle:nth-child(1) { left: 5%; top: 10%; animation-delay: 0s; animation-duration: 20s; }
+        .global-particle:nth-child(2) { left: 15%; top: 30%; animation-delay: 3s; animation-duration: 25s; }
+        .global-particle:nth-child(3) { left: 25%; top: 60%; animation-delay: 6s; animation-duration: 18s; }
+        .global-particle:nth-child(4) { left: 35%; top: 20%; animation-delay: 9s; animation-duration: 22s; }
+        .global-particle:nth-child(5) { left: 45%; top: 80%; animation-delay: 12s; animation-duration: 28s; }
+        .global-particle:nth-child(6) { left: 55%; top: 40%; animation-delay: 15s; animation-duration: 16s; }
+        .global-particle:nth-child(7) { left: 65%; top: 70%; animation-delay: 18s; animation-duration: 24s; }
+        .global-particle:nth-child(8) { left: 75%; top: 15%; animation-delay: 21s; animation-duration: 19s; }
+        .global-particle:nth-child(9) { left: 85%; top: 90%; animation-delay: 24s; animation-duration: 26s; }
+        .global-particle:nth-child(10) { left: 95%; top: 50%; animation-delay: 27s; animation-duration: 21s; }
+        .global-particle:nth-child(11) { left: 10%; top: 75%; animation-delay: 30s; animation-duration: 23s; }
+        .global-particle:nth-child(12) { left: 30%; top: 5%; animation-delay: 33s; animation-duration: 17s; }
+        .global-particle:nth-child(13) { left: 50%; top: 35%; animation-delay: 36s; animation-duration: 27s; }
+        .global-particle:nth-child(14) { left: 70%; top: 85%; animation-delay: 39s; animation-duration: 20s; }
+        .global-particle:nth-child(15) { left: 90%; top: 25%; animation-delay: 42s; animation-duration: 24s; }
+        
+        .global-particle:nth-child(odd) {
+            width: 1px;
+            height: 1px;
+            background: #6b5b95;
+            box-shadow: 0 0 4px #6b5b95;
+        }
+        
+        .global-particle:nth-child(3n) {
+            width: 3px;
+            height: 3px;
+            background: #9a8cb4;
+            box-shadow: 0 0 8px #9a8cb4, 0 0 15px #8b7ab8;
+        }
+        
+        @keyframes global-float {
+            0%, 100% { 
+                transform: translateX(0px) translateY(0px) rotate(0deg);
+                opacity: 0.3;
+            }
+            25% { 
+                transform: translateX(20px) translateY(-15px) rotate(90deg);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateX(-15px) translateY(-30px) rotate(180deg);
+                opacity: 1;
+            }
+            75% { 
+                transform: translateX(25px) translateY(-10px) rotate(270deg);
+                opacity: 0.6;
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 5, 8, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid #4a4a4a;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #8b949e;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #e4e6ea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #8b949e;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #8b949e;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-top: 6rem;
+            padding: 3rem 0;
+            min-height: calc(100vh - 6rem);
+        }
+        
+        .page-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+            background: 
+                radial-gradient(ellipse at center, rgba(139, 122, 184, 0.1) 0%, transparent 70%);
+        }
+        
+        .page-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #8b949e;
+            text-shadow: 0 0 10px rgba(139, 148, 158, 0.5);
+        }
+        
+        .page-hero .subtitle {
+            font-size: 1.2rem;
+            color: #c9d1d9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .back-btn {
+            background: transparent;
+            color: #8b949e;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #8b949e;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-block;
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+        }
+        
+        .back-btn:hover {
+            background: #8b949e;
+            color: #050508;
+            transform: translateY(-2px);
+        }
+        
+        /* PDF Documents Grid */
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .document-card {
+            background: rgba(26, 26, 26, 0.6);
+            padding: 2rem;
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid #6c757d;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        
+        .document-card:hover {
+            transform: translateY(-5px);
+            border-color: #8b949e;
+        }
+        
+        .document-card h2 {
+            color: #8b949e;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .document-card p {
+            color: #c9d1d9;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .pdf-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .pdf-btn {
+            background: linear-gradient(135deg, #6c757d 0%, #8b949e 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+            font-family: inherit;
+        }
+        
+        .pdf-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 148, 158, 0.4);
+        }
+        
+        .pdf-btn.secondary {
+            background: transparent;
+            border: 2px solid #8b949e;
+            color: #8b949e;
+        }
+        
+        .pdf-btn.secondary:hover {
+            background: #8b949e;
+            color: #050508;
+        }
+        
+        /* PDF Preview Section */
+        .pdf-preview {
+            background: rgba(26, 26, 26, 0.6);
+            padding: 2rem;
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid #6c757d;
+            margin-top: 2rem;
+        }
+        
+        .pdf-preview h3 {
+            color: #8b949e;
+            margin-bottom: 1rem;
+        }
+        
+        .pdf-embed {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #6c757d;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b949e;
+            font-size: 1.1rem;
+        }
+        
+        .pdf-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .documents-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pdf-actions {
+                flex-direction: column;
+            }
+            
+            .pdf-embed {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Global Particles Background -->
+    <div class="global-particles">
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+    </div>
+
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Michael S Becker</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-hero">
+                <h1>Academic Reflections</h1>
+                <p class="subtitle">Portfolio requirement documents showcasing my educational journey and growth</p>
+                <a href="index.html" class="back-btn">← Back to Portfolio</a>
+            </div>
+
+            <div class="documents-grid">
+                <div class="document-card">
+                    <h2>General Education Reflection</h2>
+                    <p>This reflection examines how my general education courses have contributed to my development as an engineer and as a well-rounded individual, analyzing the impact of liberal arts education on technical problem-solving.</p>
+                    
+                    <div class="pdf-actions">
+                        <a href="general-education-reflection.pdf" class="pdf-btn" target="_blank">
+                            📄 View PDF
+                        </a>
+                        <a href="general-education-reflection.pdf" class="pdf-btn secondary" download>
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <h2>Cumulative Reflection</h2>
+                    <p>A comprehensive reflection on my entire academic experience, highlighting key learning moments, challenges overcome, and how my education has prepared me for a successful engineering career.</p>
+                    
+                    <div class="pdf-actions">
+                        <a href="cumulative-reflection.pdf" class="pdf-btn" target="_blank">
+                            📄 View PDF
+                        </a>
+                        <a href="cumulative-reflection.pdf" class="pdf-btn secondary" download>
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <h2>Ethics Paper (CPRE/EE 394)</h2>
+                    <p>Academic paper examining ethical considerations in engineering practice, exploring professional responsibility, societal impact, and moral decision-making in technical fields.</p>
+                    
+                    <div class="pdf-actions">
+                        <a href="ethics-paper-394.pdf" class="pdf-btn" target="_blank">
+                            📄 View PDF
+                        </a>
+                        <a href="ethics-paper-394.pdf" class="pdf-btn secondary" download>
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional PDF Preview Section -->
+            <div class="pdf-preview">
+                <h3>Document Preview</h3>
+                <div class="pdf-embed">
+                    <p>Click on any "View PDF" button above to preview documents here, or use "Download" to save them locally.</p>
+                    <!-- You can embed PDFs here using iframe if desired:
+                    <iframe src="your-pdf-file.pdf" type="application/pdf"></iframe>
+                    -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Optional: Add functionality to preview PDFs in the embed section
+        document.querySelectorAll('.pdf-btn:not(.secondary)').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (window.innerWidth > 768) {
+                    e.preventDefault();
+                    const pdfUrl = this.getAttribute('href');
+                    const embed = document.querySelector('.pdf-embed');
+                    embed.innerHTML = `<iframe src="${pdfUrl}" type="application/pdf"></iframe>`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
