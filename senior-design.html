@@ -375,6 +375,65 @@
             box-shadow: 0 10px 25px rgba(139, 148, 158, 0.4);
         }
         
+        /* Lightbox/Modal Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            overflow: auto;
+        }
+        
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 2%;
+        }
+        
+        .lightbox-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #8b949e;
+            text-decoration: none;
+        }
+        
+        .gallery-item img,
+        .hero-image img {
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item img:hover,
+        .hero-image img:hover {
+            opacity: 0.9;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .project-hero h1 {
@@ -673,5 +732,57 @@
             </div>
         </div>
     </main>
+    
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+    
+    <script>
+        // Get the modal
+        var modal = document.getElementById('lightbox');
+        var modalImg = document.getElementById('lightbox-img');
+        var captionText = document.getElementById('lightbox-caption');
+        var span = document.getElementsByClassName('close')[0];
+        
+        // Get all images in gallery items and hero images
+        var images = document.querySelectorAll('.gallery-item img, .hero-image img');
+        
+        // Add click event to all images
+        images.forEach(function(img) {
+            img.onclick = function() {
+                modal.style.display = 'block';
+                modalImg.src = this.src;
+                // Try to get caption from the next sibling element
+                var caption = this.nextElementSibling;
+                if (caption && caption.classList.contains('gallery-caption')) {
+                    captionText.innerHTML = caption.innerHTML;
+                } else {
+                    captionText.innerHTML = this.alt;
+                }
+            }
+        });
+        
+        // When the user clicks on close button, close the modal
+        span.onclick = function() {
+            modal.style.display = 'none';
+        }
+        
+        // When the user clicks anywhere outside of the image, close it
+        modal.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
