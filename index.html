@@ -646,3 +646,120 @@
                     <a href="resume.pdf" class="btn-secondary" target="_blank">View Resume</a>
                     <a href="contact.html" class="btn-secondary">Get In Touch</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>I'm a dedicated engineering student with a passion for solving complex problems through innovative technology solutions. My journey in engineering has been driven by curiosity and a desire to create meaningful impact.</p>
+                    
+                    <h3>Career Objective</h3>
+                    <p>To leverage my engineering skills and passion for technology to develop innovative solutions that make a positive impact on society. I aim to work in a dynamic environment where I can continue learning, contribute to cutting-edge projects, and grow as a professional engineer while solving real-world challenges.</p>
+                    
+                    <div class="skills">
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">Verilog/VHDL</span>
+                        <span class="skill-tag">PCB Design</span>
+                        <span class="skill-tag">Embedded Systems</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="placeholder-image">
+                        Your Photo Here
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>A showcase of my engineering work, from senior design to personal projects</p>
+            </div>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Senior Design Project</h3>
+                    <p>Description of your capstone project, your role, skills gained, and big picture contribution.</p>
+                    <a href="senior-design.html" class="project-link">Learn More →</a>
+                </div>
+                
+                <div class="project-card">
+                    <h3>AI-Threat Detection</h3>
+                    <p>Personal project where I learned how to implement common security practices.</p>
+                    <a href="ai-threat-detection.html" class="project-link">Learn More →</a>
+                </div>
+                
+                <div class="project-card">
+                    <h3>NutriFit App Development</h3>
+                    <p>Developed an App in Android Studio with teammates in Coms 309.</p>
+                    <a href="nutrifit-app.html" class="project-link">Learn More →</a>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Project Four</h3>
+                    <p>Additional project demonstrating breadth of experience and technical capabilities.</p>
+                    <a href="project-four.html" class="project-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <p>Have a question or want to collaborate? I'd love to hear from you.</p>
+            <div class="contact-info">
+                <a href="mailto:michael.becker@example.com" class="contact-item">Email</a>
+                <a href="https://linkedin.com/in/michaelbecker" class="contact-item">LinkedIn</a>
+                <a href="https://github.com/michaeibecker28" class="contact-item">GitHub</a>
+                <a href="contact.html" class="contact-item">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
