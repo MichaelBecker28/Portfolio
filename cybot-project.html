@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyBot Project - Michael S Becker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #e4e6ea;
+            background: #050508;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Global Particles Background */
+        .global-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .global-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #8b7ab8;
+            box-shadow: 0 0 6px #8b7ab8, 0 0 12px #6b5b95;
+            animation: global-float 25s infinite linear;
+        }
+        
+        .global-particle:nth-child(1) { left: 5%; top: 10%; animation-delay: 0s; animation-duration: 20s; }
+        .global-particle:nth-child(2) { left: 15%; top: 30%; animation-delay: 3s; animation-duration: 25s; }
+        .global-particle:nth-child(3) { left: 25%; top: 60%; animation-delay: 6s; animation-duration: 18s; }
+        .global-particle:nth-child(4) { left: 35%; top: 20%; animation-delay: 9s; animation-duration: 22s; }
+        .global-particle:nth-child(5) { left: 45%; top: 80%; animation-delay: 12s; animation-duration: 28s; }
+        .global-particle:nth-child(6) { left: 55%; top: 40%; animation-delay: 15s; animation-duration: 16s; }
+        .global-particle:nth-child(7) { left: 65%; top: 70%; animation-delay: 18s; animation-duration: 24s; }
+        .global-particle:nth-child(8) { left: 75%; top: 15%; animation-delay: 21s; animation-duration: 19s; }
+        .global-particle:nth-child(9) { left: 85%; top: 90%; animation-delay: 24s; animation-duration: 26s; }
+        .global-particle:nth-child(10) { left: 95%; top: 50%; animation-delay: 27s; animation-duration: 21s; }
+        .global-particle:nth-child(11) { left: 10%; top: 75%; animation-delay: 30s; animation-duration: 23s; }
+        .global-particle:nth-child(12) { left: 30%; top: 5%; animation-delay: 33s; animation-duration: 17s; }
+        .global-particle:nth-child(13) { left: 50%; top: 35%; animation-delay: 36s; animation-duration: 27s; }
+        .global-particle:nth-child(14) { left: 70%; top: 85%; animation-delay: 39s; animation-duration: 20s; }
+        .global-particle:nth-child(15) { left: 90%; top: 25%; animation-delay: 42s; animation-duration: 24s; }
+        
+        .global-particle:nth-child(odd) {
+            width: 1px;
+            height: 1px;
+            background: #6b5b95;
+            box-shadow: 0 0 4px #6b5b95;
+        }
+        
+        .global-particle:nth-child(3n) {
+            width: 3px;
+            height: 3px;
+            background: #9a8cb4;
+            box-shadow: 0 0 8px #9a8cb4, 0 0 15px #8b7ab8;
+        }
+        
+        @keyframes global-float {
+            0%, 100% { 
+                transform: translateX(0px) translateY(0px) rotate(0deg);
+                opacity: 0.3;
+            }
+            25% { 
+                transform: translateX(20px) translateY(-15px) rotate(90deg);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateX(-15px) translateY(-30px) rotate(180deg);
+                opacity: 1;
+            }
+            75% { 
+                transform: translateX(25px) translateY(-10px) rotate(270deg);
+                opacity: 0.6;
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 5, 8, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid #4a4a4a;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #8b949e;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #e4e6ea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #8b949e;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #8b949e;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-top: 6rem;
+            padding: 3rem 0;
+            min-height: calc(100vh - 6rem);
+        }
+        
+        .project-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+            background: 
+                radial-gradient(ellipse at center, rgba(139, 122, 184, 0.1) 0%, transparent 70%);
+        }
+        
+        .project-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #8b949e;
+            text-shadow: 0 0 10px rgba(139, 148, 158, 0.5);
+        }
+        
+        .project-hero .subtitle {
+            font-size: 1.2rem;
+            color: #c9d1d9;
+            margin-bottom: 2rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .tag {
+            background: #1a1a1a;
+            color: #8b949e;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            border: 1px solid #6c757d;
+            clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%);
+        }
+        
+        .back-btn {
+            background: transparent;
+            color: #8b949e;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #8b949e;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-block;
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+        }
+        
+        .back-btn:hover {
+            background: #8b949e;
+            color: #050508;
+            transform: translateY(-2px);
+        }
+        
+        /* Project Content */
+        .project-content {
+            display: grid;
+            gap: 3rem;
+        }
+        
+        .content-section {
+            background: rgba(26, 26, 26, 0.6);
+            padding: 2rem;
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid #6c757d;
+        }
+        
+        .content-section h2 {
+            color: #8b949e;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #6c757d;
+            padding-bottom: 0.5rem;
+        }
+        
+        .content-section h3 {
+            color: #c9d1d9;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .content-section p {
+            color: #e4e6ea;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .content-section ul {
+            color: #e4e6ea;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* System Diagram */
+        .diagram-container {
+            width: 100%;
+            background: #0a0a0a;
+            padding: 2rem;
+            margin: 2rem 0;
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%);
+            border: 1px solid #6c757d;
+        }
+        
+        .diagram-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .highlight-box {
+            background: rgba(139, 148, 158, 0.1);
+            border: 1px solid #8b949e;
+            padding: 1.5rem;
+            clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 100%, 15px 100%);
+            margin: 1rem 0;
+        }
+        
+        .highlight-box h4 {
+            color: #8b949e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .links-section {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .project-link {
+            background: linear-gradient(135deg, #6c757d 0%, #8b949e 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block;
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+        }
+        
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 148, 158, 0.4);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .project-tags {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Global Particles Background -->
+    <div class="global-particles">
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+        <div class="global-particle"></div>
+    </div>
+
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Michael S Becker</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="project-hero">
+                <h1>CyBot Autonomous Vehicle</h1>
+                <p class="subtitle">Embedded Systems - CprE 288 Lab Project</p>
+                
+                <div class="project-tags">
+                    <span class="tag">C</span>
+                    <span class="tag">Embedded Systems</span>
+                    <span class="tag">TM4C123</span>
+                    <span class="tag">UART</span>
+                    <span class="tag">Interrupts</span>
+                    <span class="tag">PWM</span>
+                    <span class="tag">ADC</span>
+                </div>
+                
+                <a href="index.html#projects" class="back-btn">← Back to Projects</a>
+            </div>
+
+            <div class="project-content">
+                <!-- Project Overview -->
+                <div class="content-section">
+                    <h2>Project Overview</h2>
+                    
+                    <p>The CyBot project was an autonomous vehicle application developed for CprE 288. The robot navigated a test field with obstacles, boundaries, and holes to reach a destination zone marked by four pillars. The system integrated multiple sensors and embedded components to enable real-time decision-making and remote control capabilities.</p>
+                    
+                    <p>Our team, Dune Spice, implemented a complete embedded system with user interface, sensor integration, object detection, autonomous navigation, and wireless communication between the robot and base station.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>Course Context</h4>
+                        <p>CprE 288 - Embedded Systems International<br>
+                        Team: Dune Spice (Team 9A)<br>
+                        Spring 2024</p>
+                    </div>
+                </div>
+
+                <!-- System Architecture -->
+                <div class="content-section">
+                    <h2>System Architecture</h2>
+                    
+                    <div class="diagram-container">
+                        <img src="cybot-diagram.png" alt="CyBot System Architecture">
+                    </div>
+                    
+                    <p>The system architecture integrated multiple hardware components with software modules to enable autonomous operation:</p>
+                    
+                    <ul>
+                        <li><strong>Sensor Input:</strong> IR and ultrasonic sensors detected objects and measured distances at 30Hz sampling rate</li>
+                        <li><strong>ADC & PWM:</strong> Analog-to-digital conversion processed sensor data while pulse-width modulation controlled the servo motor</li>
+                        <li><strong>Processing Units:</strong> ADC Routines, Sound Routines, and GUI modules handled data processing and user interaction</li>
+                        <li><strong>Communication:</strong> UART and PuTTY enabled wireless communication with the base station</li>
+                        <li><strong>System Coordinator:</strong> Spice Collector managed system timing (30Hz Sys Tick) and coordinated between all modules</li>
+                        <li><strong>Additional Sensors:</strong> Cliff sensors and bumper sensors provided safety features for hole and obstacle detection</li>
+                    </ul>
+                </div>
+
+                <!-- My Contributions -->
+                <div class="two-column">
+                    <div class="content-section">
+                        <h2>My Contributions</h2>
+                        
+                        <h3>UART Communication</h3>
+                        <p>Developed interrupt-driven UART communication functions for reliable wireless data transmission between the CyBot and base station. Implemented blocking and non-blocking receive functions to handle different communication scenarios.</p>
+                        
+                        <h3>System Integration</h3>
+                        <p>Integrated multiple hardware components including sensors, motors, and communication modules. Ensured proper timing and synchronization between different system components.</p>
+                        
+                        <h3>Code Review Process</h3>
+                        <p>Participated in team code reviews focusing on style consistency, magic number elimination, and buffer overflow safety. Ensured code quality through peer review using embedded systems best practices.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Skills Learned</h2>
+                        
+                        <h3>Technical Skills</h3>
+                        <ul>
+                            <li>Embedded C programming on TM4C123 microcontroller</li>
+                            <li>Interrupt service routine development</li>
+                            <li>UART serial communication protocols</li>
+                            <li>ADC and PWM signal processing</li>
+                            <li>Real-time system design and timing</li>
+                            <li>Sensor integration and calibration</li>
+                        </ul>
+                        
+                        <h3>Professional Skills</h3>
+                        <ul>
+                            <li>Collaborative embedded systems development</li>
+                            <li>Code review and quality assurance</li>
+                            <li>System architecture design</li>
+                            <li>Technical documentation</li>
+                            <li>Debugging embedded hardware/software</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Code Review -->
+                <div class="content-section">
+                    <h2>Code Review Findings</h2>
+                    
+                    <p>Our team conducted a thorough code review of the UART communication module using the CMU Embedded C Code Review Checklist. We focused on three key perspectives:</p>
+                    
+                    <h3>Style Consistency (Reviewer 1)</h3>
+                    <p>The code maintained consistent formatting and avoided orphaned code blocks. This created an effective and maintainable codebase that team members could easily understand and modify.</p>
+                    
+                    <h3>Magic Numbers & Variable Naming (Reviewer 2)</h3>
+                    <p>We identified areas where magic numbers could be replaced with named constants. Variables were well-chosen and descriptive, helping to minimize magic numbers that could limit functionality.</p>
+                    
+                    <h3>Scope & Safety (Reviewer 3)</h3>
+                    <p>Functions and variables utilized minimal scope with limited global variables except for necessary interrupts. Buffer overflow safety measures were implemented to prevent runtime errors during operation.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>Review Outcome</h4>
+                        <p>The code review found no major issues. The UART module followed embedded systems best practices and was ready for integration into the final system.</p>
+                    </div>
+                </div>
+
+                <!-- Resources -->
+                <div class="content-section">
+                    <h2>Resources Used</h2>
+                    
+                    <p>TM4C123GH6PM microcontroller, iRobot Create 2 platform, IR distance sensors, ultrasonic sensors (PING), servo motor, cliff sensors, bump sensors, WiFi module for wireless communication, PuTTY terminal interface, Code Composer Studio IDE, and the CMU Embedded Code Review Checklist for quality assurance.</p>
+                    <h3>Key Documentation</h3>
+                    <ul>
+                        <li><strong>TM4C123 Datasheet:</strong> Hardware specs and register info</li>
+                        <li><strong>iRobot Create 2 Open Interface:</strong>command reference for robot control and sensor data</li>
+                        <li><strong>UART Configuration Guide:</strong>communication setup for WiFi and wired connections</li>
+                        <li><strong>Lab Manual:</strong> CprE 288 project specifications and requirements</li>
+                    </ul>
+    
+                    <div class="links-section">
+                        <a href="Navigating_TIVA_Datasheet.pdf" class="project-link">TIVA Datasheet Guide</a>
+                        <a href="Datasheet_infographic_288 (1).pdf" class="project-link">Data sheet</a>
+                        <a href="PuTTY UART and WiFi Board Quick Reference Sheet.pdf" class="project-link">UART & WiFi Reference</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
