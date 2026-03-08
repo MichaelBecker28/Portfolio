@@ -1,6 +1,6 @@
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+import { PortfolioImage } from "@/components/ui/portfolio-image"
 
 export default function SeniorDesign() {
   return (
@@ -26,7 +26,7 @@ export default function SeniorDesign() {
         </div>
 
         <div className="relative aspect-video mb-12 overflow-hidden border border-white/10 bg-white/5">
-          <Image src="/smartclass-home.png" alt="SmartClass Home" fill className="object-cover" />
+          <PortfolioImage src="/smartclass-home.png" alt="SmartClass Home" fill className="object-cover" />
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -66,7 +66,7 @@ export default function SeniorDesign() {
         <div className="grid sm:grid-cols-3 gap-4">
           {["/smartclass-professor-view.png", "/smartclass-live-chat.png", "/smartclass-course-page.png", "/smartclass-create-class.png", "/smartclass-upload-materials.png", "/smartclass-course-materials.png"].map((src, i) => (
             <div key={i} className="relative aspect-video overflow-hidden border border-white/10 bg-white/5">
-              <Image src={src} alt={`SmartClass screenshot ${i + 1}`} fill className="object-cover" />
+              <PortfolioImage src={src} alt={`SmartClass screenshot ${i + 1}`} fill className="object-cover" />
             </div>
           ))}
         </div>

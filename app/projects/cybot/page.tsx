@@ -1,6 +1,6 @@
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+import { PortfolioImage } from "@/components/ui/portfolio-image"
 
 export default function CyBot() {
   return (
@@ -26,7 +26,7 @@ export default function CyBot() {
         </div>
 
         <div className="relative aspect-video mb-12 overflow-hidden border border-white/10 bg-white/5">
-          <Image src="/cybot-diagram.png" alt="CyBot Diagram" fill className="object-cover object-top" />
+          <PortfolioImage src="/cybot-diagram.png" alt="CyBot Diagram" fill className="object-cover object-top" />
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">

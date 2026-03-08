@@ -1,6 +1,6 @@
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+import { PortfolioImage } from "@/components/ui/portfolio-image"
 
 export default function AIThreatDetection() {
   return (
@@ -26,7 +26,7 @@ export default function AIThreatDetection() {
         </div>
 
         <div className="relative aspect-video mb-12 overflow-hidden border border-white/10 bg-white/5">
-          <Image src="/attack-analytics.png" alt="Attack Analytics" fill className="object-cover" />
+          <PortfolioImage src="/attack-analytics.png" alt="Attack Analytics" fill className="object-cover" />
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -65,10 +65,10 @@ export default function AIThreatDetection() {
 
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="relative aspect-video overflow-hidden border border-white/10 bg-white/5">
-            <Image src="/dashboard-overview.png" alt="Dashboard Overview" fill className="object-cover" />
+            <PortfolioImage src="/dashboard-overview.png" alt="Dashboard Overview" fill className="object-cover" />
           </div>
           <div className="relative aspect-video overflow-hidden border border-white/10 bg-white/5">
-            <Image src="/threat-feed.png" alt="Threat Feed" fill className="object-cover" />
+            <PortfolioImage src="/threat-feed.png" alt="Threat Feed" fill className="object-cover" />
           </div>
         </div>
 

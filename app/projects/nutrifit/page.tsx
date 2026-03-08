@@ -1,6 +1,6 @@
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+import { PortfolioImage } from "@/components/ui/portfolio-image"
 
 export default function NutriFit() {
   return (
@@ -26,7 +26,7 @@ export default function NutriFit() {
         </div>
 
         <div className="relative aspect-video mb-12 overflow-hidden border border-white/10 bg-white/5">
-          <Image src="/nutrifit-goals.png" alt="NutriFit Goals" fill className="object-cover" />
+          <PortfolioImage src="/nutrifit-goals.png" alt="NutriFit Goals" fill className="object-cover" />
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -58,7 +58,7 @@ export default function NutriFit() {
         <div className="grid sm:grid-cols-3 gap-4">
           {["/nutrifit-goals.png", "/nutrifit-nutrition.png", "/nutrifit-profile.png"].map((src, i) => (
             <div key={i} className="relative aspect-[9/16] overflow-hidden border border-white/10 bg-white/5">
-              <Image src={src} alt={`NutriFit screenshot ${i + 1}`} fill className="object-cover object-top" />
+              <PortfolioImage src={src} alt={`NutriFit screenshot ${i + 1}`} fill className="object-cover object-top" />
             </div>
           ))}
         </div>

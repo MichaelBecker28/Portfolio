@@ -1,5 +1,5 @@
-import Image from "next/image"
 import Link from "next/link"
+import { PortfolioImage } from "@/components/ui/portfolio-image"
 
 const skills = [
   { category: "Security", items: ["Network Security", "Penetration Testing", "Threat Detection", "SIEM/SOC", "Vulnerability Assessment"] },
@@ -54,7 +54,7 @@ export default function About() {
           </div>
 
           <div className="relative aspect-square rounded-sm overflow-hidden border border-white/10 bg-white/5">
-            <Image
+            <PortfolioImage
               src="/profile.jpg"
               alt="Michael S Becker"
               fill

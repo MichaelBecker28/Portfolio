@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Image from "next/image"
+import { PortfolioImage } from "@/components/ui/portfolio-image"
 
 const projects = [
   {
@@ -62,7 +62,7 @@ export default function Projects() {
             >
               {/* Image */}
               <div className="relative aspect-video overflow-hidden bg-white/5 border-b border-white/10">
-                <Image
+                <PortfolioImage
                   src={p.image}
                   alt={p.title}
                   fill
